@@ -9,8 +9,9 @@ using namespace std;
 void main()
 {
 	setlocale(LC_ALL, "Russian");
-	double x, a;
+	double x, a, y;
 	int b;
+
 
 
 	cout << "Задание на вычисление y\n"; // Блок ввода
@@ -22,18 +23,61 @@ void main()
 	cin >> b;
 
 
-	if (((a == 0) && (b == 0)) || (a*x <= 0)) // Условие исключает 0^0 или когда значение под корнем <= 0
+	
+	if (a*x >= 0)
 	{
-		cout << "Нет решений";
+		if (a*x == 0 && b <= 0) 
+		{
+			cout << "Нет решений";
+		}
+		else if (a * x == 0 && b > 0)
+		{
+			y = pow(a * x, b);
+			y = (y - 3);
+			cout << "\ny = " << y * y * y;
+		}
+		else if (b == 0)
+		{
+			y = pow(a * x, b);
+			y = (y - 3);
+			cout << "\ny = " << y * y * y;
+		}
+		else if (b % 4 == 0)
+		{
+			b = b / 4;
+			y = pow(a * x, b);
+			y = (y - 3);
+			cout << "\ny = " << y * y * y;
+		}
+		else
+		{
+			y = pow(a * x, b);
+			y = sqrt(sqrt(y));
+			y = (y - 3);
+			cout << "\ny = " << y * y * y;
+		}
 	}
-	else 
+	else
 	{
-		float y;
-		y = pow(a*x, b); 
-		y = sqrt(sqrt(y));
-		y = (y - 3); 
-		cout << "\ny = " << y * y * y;
+		if (b == 0)
+		{
+			y = pow(a * x, b);
+			y = (y - 3);
+			cout << "\ny = " << y * y * y;
+		}
+		else if (b % 4 == 0)
+		{
+			b = b / 4;
+			y = pow(a * x, b);
+			y = (y - 3);
+			cout << "\ny = " << y * y * y;
+		}
+		else
+		{
+			cout << "Нет решений";
+		}
 	}
+	
 }
 
 
